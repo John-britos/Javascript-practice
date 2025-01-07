@@ -3,25 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Guessing Game</title>
     <link rel="stylesheet" href="/sec-practice/styles.css">
-    <script src="/sec-practice/logic.js"></script>
+    <script src="/sec-practice/logic.js" defer></script>
 </head>
 <body>
     <div class="main-container">
         <h1>THE GUESSING GAME</h1>
+        <p id="lives">Lives left: 10</p>
         <p>Guess the number from 1 to 100</p>
-        <form 
-            class="forms">
-            <input type="number">
+
+        <form class="forms" onsubmit="event.preventDefault(); playerGuess('guessInput');">
+            <input 
+                type="number" 
+                id="guessInput" 
+                placeholder="Enter your guess" 
+                aria-label="Guess the number from 1 to 100"
+                min="1" 
+                max="100" 
+                required>
             <button 
-                type="submit"
-                onclick="playerGuess(number)" 
-                id="number"
-            >
-            Guess
+                type="submit" 
+                id="submitBtn">
+                Guess
             </button>
         </form>
-    </div>    
+
+        <p id="prompt"></p>
+    </div>
 </body>
 </html>
