@@ -1,21 +1,46 @@
+let playerLives = 10;
+let computerNumber = getRandomNumber();
+
 function getRandomNumber(){
-    let randomNumber = Math.floor(Math.random() * 100) + 1;
-    return randomNumber;
+    return Math.floor(Math.random()* 100) + 1;
 }
 
-console.log(getRandomNumber());
+function playerGuess(guessInput){
+    const inputField = document.getElementById(guessInput);
+    const playerNumber = parseInt(inputField.value, 10);
 
+    gameRound(playerNumber);
+}
 
-function playerGuess(number){
-    let computerNumber = getRandomNumber();    
-    playerNumber = document.getElementById(number);
+function livesUpdate(){
+    document.getElementById("lives").textContent = `Lives left: ${playerLives}`;
+}
 
-    if (playerNumber === computerNumber) {
-        alert(`You Guessed ${computerNumber} and you are right! are you a prophet!`);        
+function gameRound(playerNumber){
+    const gamePrompt = document.getElementById("prompt");
+    console.log(computerNumber);
+    
+    if (playerNumber < computerNumber){
+        gamePrompt.textContent = "The Computer number is greater than your number";
+    } else if (playerNumber > computerNumber){
+        gamePrompt.textContent = "The Computer number is less than your number";
     } else {
-        alert(`You lost bitch the number is ${computerNumber}`);
+        gamePrompt.textContent = `You guessed ${computerNumber}, you are a prophet.`;
+        return;
     }
-    
-    
+
+    playerLives--;
+    livesUpdate();
+
+    if(playerLives === 0){
+        gamePrompt.textContent = "You lose you bitch";
+        resetGame();
+    }
 }
 
+function resetGame(){
+    playerLives = 10;
+    computerNumber = getRandomNumber();
+    livesUpdate();
+    document.getElementById("prompt").textContent = "New game started. Make your guess!";
+}
