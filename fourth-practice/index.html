@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/fourth-practice/styles.css">
+    <script src="/fourth-practice/index.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <h1>GRADE CALCULATOR</h1>
+        <form class="forms" onsubmit="event.preventDefault(); calculateGrade('score');">
+            <input type="number" id="score" min="1" max="100">
+            <button type="submit">Submit</button>
+        </form>
+        <p id="prompt"></p>
+    </div>
+</body>
+</html>
