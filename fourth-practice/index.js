@@ -10,7 +10,6 @@ function calculateGrade(score) {
     }
 
     displayGrade(grade);
-
     gradeInput.value = '';
     gradeInput.focus(); 
 }
