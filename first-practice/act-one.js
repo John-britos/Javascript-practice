@@ -1,3 +1,9 @@
+const score = {
+    wins : 0,
+    losses: 0,
+    ties: 0
+};
+
 function getComputerPick (){
     //1/1-----2/3------3/3
     let randomNumber = Math.random() 
@@ -26,17 +32,24 @@ function playRound(playerChoice){
     let computerChoice = getComputerPick();
     
     if (playerChoice === computerChoice){
-        alert(`Its a tie, You and the computer both chose ${computerChoice}`) 
+        score.ties ++;
+        alert(`Its a tie, You and the computer both chose ${computerChoice} 
+            Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`) 
     } 
     else if (
     (playerChoice === "rock" && computerChoice === "scissors") ||
     (playerChoice === "paper" && computerChoice === "rock") || 
     (playerChoice === "scissors" && computerChoice === "paper")
     ) {
-        alert(`You Win, you chose ${playerChoice} while computer chose ${computerChoice}`);
+        score.wins ++;
+        alert(`You Win, you chose ${playerChoice} while computer chose ${computerChoice}
+            Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`);
     }
     else{
-        alert(`You Lose, you chose ${playerChoice} while computer chose ${computerChoice}`);
+        score.losses ++;
+        alert(`You Lose, you chose ${playerChoice} while computer chose ${computerChoice}
+            Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`);
     }
 
+    
 }
