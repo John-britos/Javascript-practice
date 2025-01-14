@@ -1,5 +1,22 @@
 const todoList = [];
 
+renderTodoList();
+
+function renderTodoList() {
+	let todoListHTML = '';
+	for (let i = 0; i < todoList.length; i++) {
+		//explain what is happening here
+		//this is a for loop
+		// that goes through the todoList
+		// array and creates a new p tag for each item in the array
+		const todo = todoList[i];
+		const html = `<p>${todo}</p>`;
+		todoListHTML += html;
+
+		document.querySelector('.todoList').innerHTML = todoListHTML;
+	}
+}
+
 function addTodo() {
 	const inputElement = document.querySelector('.todoInput');
 	const userTodo = inputElement.value;
@@ -8,4 +25,5 @@ function addTodo() {
 	console.log(todoList);
 
 	inputElement.value = '';
+	renderTodoList();
 }
