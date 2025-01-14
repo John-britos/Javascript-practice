@@ -5,7 +5,6 @@ renderTodoList();
 function renderTodoList() {
 	let todoListHTML = '';
 	for (let i = 0; i < todoList.length; i++) {
-		//explain what is happening here
 		//this is a for loop
 		// that goes through the todoList
 		// array and creates a new p tag for each item in the array
