@@ -7,13 +7,12 @@ function renderTodoList() {
 	for (let i = 0; i < todoList.length; i++) {
 		const todo = todoList[i];
 		const html = `
-			<p>
-				${todo}
-				<button onclick="
+				<div>${todo}</div>
+				<button class="remove-todo" onclick="
 				todoList.splice(${i}, 1);
 				renderTodoList();
 				">delete</button>
-			</p>`;
+			`;
 		todoListHTML += html;
 	}
 	document.querySelector('.todoList').innerHTML = todoListHTML;
