@@ -1,0 +1,30 @@
+body {
+    font-family: monospace;
+}
+
+.todo-grid {
+    display: grid;
+    grid-template-columns: 150px 100px;
+    grid-gap: 5px;
+}
+
+.todoInput {
+    padding: 5px;
+}
+
+.todoList {
+    align-items: center;
+}
+
+.add-todo {
+    background-color: green;
+    color: white;
+    border: none;
+}
+
+.remove-todo {
+    padding: 5px;
+    background-color: red;
+    color: white;
+    border: none;
+}
