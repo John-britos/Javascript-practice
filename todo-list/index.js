@@ -5,15 +5,18 @@ renderTodoList();
 function renderTodoList() {
 	let todoListHTML = '';
 	for (let i = 0; i < todoList.length; i++) {
-		//this is a for loop
-		// that goes through the todoList
-		// array and creates a new p tag for each item in the array
 		const todo = todoList[i];
-		const html = `<p>${todo}</p>`;
+		const html = `
+			<p>
+				${todo}
+				<button onclick="
+				todoList.splice(${i}, 1);
+				renderTodoList();
+				">delete</button>
+			</p>`;
 		todoListHTML += html;
-
-		document.querySelector('.todoList').innerHTML = todoListHTML;
 	}
+	document.querySelector('.todoList').innerHTML = todoListHTML;
 }
 
 function addTodo() {
