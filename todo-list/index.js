@@ -1,10 +1,8 @@
 const todoList = [];
 
-renderTodoList();
-
-function renderTodoList() {
+const renderTodoList = () => {
 	let todoListHTML = '';
-	todoList.forEach(function (todo, index){
+	todoList.forEach((todo, index) => {
 		const html = `
 				<div>${todo}</div>
 				<button class="remove-todo" onclick="
@@ -17,6 +15,7 @@ function renderTodoList() {
 	
 	document.querySelector('.todoList').innerHTML = todoListHTML;
 }
+renderTodoList();
 
 function addTodo() {
 	const inputElement = document.querySelector('.todoInput');
