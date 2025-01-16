@@ -4,17 +4,17 @@ renderTodoList();
 
 function renderTodoList() {
 	let todoListHTML = '';
-	for (let i = 0; i < todoList.length; i++) {
-		const todo = todoList[i];
+	todoList.forEach(function (todo, index){
 		const html = `
 				<div>${todo}</div>
 				<button class="remove-todo" onclick="
-				todoList.splice(${i}, 1);
+				todoList.splice(${index}, 1);
 				renderTodoList();
 				">delete</button>
 			`;
 		todoListHTML += html;
-	}
+	});
+	
 	document.querySelector('.todoList').innerHTML = todoListHTML;
 }
 
